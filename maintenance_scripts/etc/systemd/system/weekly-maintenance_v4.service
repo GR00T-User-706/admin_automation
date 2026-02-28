@@ -1,0 +1,15 @@
+[Unit]
+Description=Weekly Maintenance with mandatory reboot
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=root
+ExecStart=/usr/bin/bash /usr/local/sbin/weekly-maintenance_v4.sh
+SyslogIdentifier=weekly-maintenance
+KillMode=mixed
+TimeoutStopSec=60
+
+[Install]
+WantedBy=multi-user.target

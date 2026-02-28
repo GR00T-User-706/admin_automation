@@ -1,0 +1,11 @@
+[Unit]
+Description=Weekly Maintenance Timer
+Requires=weekly-maintenance.service
+
+[Timer]
+OnCalendar=Sun *-*-* 03:00:00
+Persistent=true
+AccuracySec=1min
+
+[Install]
+WantedBy=timers.target

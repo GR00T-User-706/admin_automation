@@ -1,0 +1,18 @@
+#/etc/systemd/system/weekly-maintenance_v3.service                                                                                                                                                  
+[Unit]
+Description=Weekly Maintenance with mandatory reboot
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=root
+ExecStart=/usr/bin/bash /usr/local/sbin/weekly_maintenance_v3.sh
+StandardOutput=append:/var/log/weekly-maintenance/maintenance.log
+StandardError=append:/var/log/weekly-maintenance/maintenance.log
+SyslogIdentifier=weekly-maintenance
+KillMode=none
+TimeoutStopSec=60
+
+[Install]
+WantedBy=multi-user.target
