@@ -160,7 +160,7 @@ pacstrap -K /mnt base linux linux-firmware \
     btrfs-progs amd-ucode plasma sddm \
     fprintd libfprint
 # 7. fstab
-genfstab -U /mnt >>/mnt/etc/fstab
+genfstab -U /mnt >> /mnt/etc/fstab
 genfstab -U /mnt >>/mnt/etc/fstab
 
 ROOT_UUID="$ROOT_UUID"
@@ -218,6 +218,7 @@ systemctl enable NetworkManager sddm
 EOF
 EOF
 
+
 # ---- CLEANUP ----
 umount -R /mnt
 umount -R /mnt
@@ -227,3 +228,20 @@ umount /mnt/usb || true
 
 echo "Install complete. Reboot."
 echo "Install complete."
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

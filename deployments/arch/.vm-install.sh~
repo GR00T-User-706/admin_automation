@@ -7,9 +7,9 @@ EFI_PART="${DISK}1"
 ROOT_PART="${DISK}2"
 HOSTNAME="archvm"
 TIMEZONE="America/Chicago"
-USERNAME="username"  # CHANGE THIS
-ROOT_PASS="rootpass" # CHANGE THIS
-USER_PASS="userpass" # CHANGE THIS
+USERNAME="username"   # CHANGE THIS
+ROOT_PASS="rootpass"  # CHANGE THIS
+USER_PASS="userpass"  # CHANGE THIS
 # ============================
 
 echo ">>> Partitioning..."
@@ -32,7 +32,7 @@ pacstrap -K /mnt base linux linux-firmware networkmanager nano \
     xorg xfce4 xfce4-goodies lightdm lightdm-gtk-greeter
 
 echo ">>> Generating fstab..."
-genfstab -U /mnt >>/mnt/etc/fstab
+genfstab -U /mnt >> /mnt/etc/fstab
 
 echo ">>> Chroot configuration..."
 arch-chroot /mnt /bin/bash <<EOF
